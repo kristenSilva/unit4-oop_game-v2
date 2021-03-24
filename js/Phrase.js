@@ -11,6 +11,18 @@ class Phrase{
      * Class attributes: 'hide', 'letter' OR 'space', 'actual character name'
      */
     addPhraseToDisplay(){
-
+        const ul = document.getElementById('phrase').getElementsByTagName('ul')[0];
+        for(let i = 0; i < this.phrase.length; i++){
+            let li = document.createElement('li');
+            const letterRegEx = /[a-z]/.test(this.phrase[i]);
+            if(letterRegEx){
+                li.classList.add('hide', 'letter', `${this.phrase[i]}`);
+                li.textContent = `${this.phrase[i]}`;
+            }else{
+                li.classList.add('space');
+                li.textContent = ' ';
+            }
+            ul.appendChild(li);
+        }
     }
 }
