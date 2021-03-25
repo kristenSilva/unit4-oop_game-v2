@@ -9,10 +9,10 @@ class Game {
     }
     /**
      * Creates phrases for use in game
-     * @return {array} An array of phrases to be used in game
+     * @return {array} An array of phrase objects to be used in game
      */
     createPhrases(){
-        const quotes = ['Hello world', 'See the good', 'Sweeter than honey', 'Te calmas o te calmo', 'El hubiera no existe']
+        const quotes = ['Hello world', 'See the good', 'Sweeter than honey', 'All is well', 'El hubiera no existe']
         const phrases = quotes.map(quote=> new Phrase(quote), []);
         return phrases;
     };
@@ -28,20 +28,9 @@ class Game {
     /**
      * Begins game by selecting a random phrase and displaying it to user
      */
-    // startGame(){
-    //     const overlayDiv = document.getElementById('overlay');
-    //     overlayDiv.style.display = 'none';
-    //     //get random phrase
-    //     const playPhrase = this.getRandomPhrase();
-    //     //display the phrase
-    //     playPhrase.addPhraseToDisplay();
-    //     //update game activePhrase property
-    //     this.activePhrase = playPhrase;
-    // }
     startGame(){
         const overlayDiv = document.getElementById('overlay');
         overlayDiv.style.display = 'none';
-        //let game = new Game();
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
     }
@@ -56,7 +45,7 @@ class Game {
     /**
      * Removes a life from the scoreboard by updating heart images
      * Increases the value of the missed property
-     * Checks if player has remaining lives and end games if player doesn't
+     * Checks if player has remaining lives and ends game if player doesn't
      */
     removeLife(){
         //array of <li> that contain images
@@ -77,7 +66,7 @@ class Game {
     }
     /**
      * Updates `overlay` message and style format according to gameWon
-     * @param {gameWon} gameWon - Whether or not the user won the game
+     * @param {boolean} gameWon - Whether or not the user won the game
      */
     gameOver(gameWon){
         const overlayDiv = document.getElementById('overlay');
@@ -90,18 +79,43 @@ class Game {
             gameOverMessage.innerHTML = 'Sorry, better luck next time!';
             overlayDiv.className = 'lose';
         }
+        this.resetGame();
+    }
+    /**
+     * Removes phrase displayed, resets screen keyboard and heart images
+     */
+    resetGame(){
+        //remove phrase from screen
+        const ulPhrase = document.getElementById('phrase').getElementsByTagName('ul')[0];
+        ulPhrase.innerHTML = '';
+        //enable all onscreen keyboard buttons
+        const keyboardButtons = document.querySelectorAll('.key');
+        keyboardButtons.forEach(button => button.className = 'key');
+        //reset all heart images
+        const hearts = document.querySelectorAll('img');
+        hearts.forEach(heart => heart.src = 'images/liveHeart.png');
     }
     /**
      * Mangages user interaction with onscreen keyboard buttons
-        * Clicked/choosen letter is captured
-        * Captured letter is checked against active phrase for matches
-            * If match then letter is displayed
-            * Else remove life
-        * Game checks if player has won (all letters displayed vs no lives left)
-            * If won display winning message
-            * If lost display losing message   
+        * Clicked letter is checked against active phrase for matches
+        * Game checks if player has won and calls gameOver to display correct message
+     * @param {button} button - Any screen keyboard button
      */
     handleInteraction(button){
-        console.log(button);
+        const clickedLetter = button.textContent;
+        const match = this.activePhrase.checkLetter(clickedLetter);
+        //check captured letter against active phrase for matches
+        if(!match){
+            button.classList.add('wrong');
+            this.removeLife();
+        } 
+        if(match) {
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(clickedLetter);
+            const win = this.checkForWin();
+            if(win){
+                this.gameOver(win);
+            }
+        }
     }
 }
