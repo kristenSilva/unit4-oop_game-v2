@@ -21,3 +21,19 @@ keyboardDiv.addEventListener('click', (e) => {
         game.handleInteraction(e.target);
     }
 })
+
+/**
+ * Event listener for physical computer keyboard
+ * Idea for `for loop` from https://stackoverflow.com/questions/3813294/how-to-get-element-by-innertext
+ */
+document.addEventListener('keydown', (e) => {
+    const screenButtons = document.querySelectorAll('.key');
+    var clicked;
+    for(let i = 0; i < screenButtons.length; i++){
+        if(screenButtons[i].textContent === e.key){
+            clicked = screenButtons[i];
+            game.handleInteraction(clicked);
+            break;
+        }
+    }
+})
