@@ -25,4 +25,24 @@ class Phrase{
             ul.appendChild(li);
         }
     }
+    /**
+     * Checks if passed letter is in phrase
+     * @param {string} letter - letter to check
+     */
+    checkLetter(letter){
+        let letterIsValid = this.phrase.includes(letter);
+        return letterIsValid;
+    }
+    /**
+     * Displays passed letter on screen after a match is found
+     * @param {string} letter - letter to display
+     */
+    showMatchedLetter(letter) {
+        //array of the <li> elements with the specific letter class
+        const matches = document.querySelectorAll(`.${letter}`);
+        for(let i = 0; i < matches.length; i++){
+            matches[i].classList.remove('hide');
+            matches[i].classList.add('show');
+        }
+    }
 }
