@@ -87,6 +87,7 @@ button {
 
 .header {
   color: #3a3f58;
+  font-family: 'papyrus', 'copperplate', fantasy;
 }
 
 
@@ -159,6 +160,11 @@ button {
   border-right: solid 3px rgba(0, 0, 0, 0);
 }
 
+/*Animation for keyboard*/
+.key {
+  animation-duration: 1s;
+}
+
 
 /* Overlay */
 
@@ -177,6 +183,7 @@ button {
 
 .title {
   color: #FFF;
+  font-family: 'papyrus', 'copperplate', fantasy;
 }
 
 .start {

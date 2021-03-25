@@ -30,10 +30,12 @@ document.addEventListener('keydown', (e) => {
     const screenButtons = document.querySelectorAll('.key');
     var clicked;
     for(let i = 0; i < screenButtons.length; i++){
-        if(screenButtons[i].textContent === e.key){
-            clicked = screenButtons[i];
-            game.handleInteraction(clicked);
-            break;
+        if(!screenButtons[i].classList.contains('chosen') && !screenButtons[i].classList.contains('wrong')){
+            if(screenButtons[i].textContent === e.key){
+                clicked = screenButtons[i];
+                game.handleInteraction(clicked);
+                break;
+            }
         }
     }
 })
