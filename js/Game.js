@@ -96,9 +96,15 @@ class Game {
         //enable all onscreen keyboard buttons
         const keyboardButtons = document.querySelectorAll('.key');
         keyboardButtons.forEach(button => button.className = 'key');
-        //reset all heart images
+        keyboardButtons.forEach(button => button.disabled = false);
+        //reset all heart images and <li> holders
         const hearts = document.querySelectorAll('img');
         hearts.forEach(heart => heart.src = 'images/liveHeart.png');
+        const liHolder = [];
+        hearts.forEach(heart => liHolder.push(heart.parentElement));
+        liHolder.forEach(li => li.className = 'tries');
+        //reset all lives
+        this.missed = 0;
     }
     /**
      * Mangages user interaction with onscreen keyboard buttons
@@ -107,6 +113,7 @@ class Game {
      * @param {button} button - Any screen keyboard button
      */
     handleInteraction(button){
+        button.disabled = true;
         const clickedLetter = button.textContent;
         const match = this.activePhrase.checkLetter(clickedLetter);
         //check captured letter against active phrase for matches
@@ -122,6 +129,5 @@ class Game {
                 this.gameOver(win);
             }
         }
-        button.disabled = true;
     }
 }
