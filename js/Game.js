@@ -12,7 +12,7 @@ class Game {
      * @return {array} An array of phrase objects to be used in game
      */
     createPhrases(){
-        const quotes = ['Hello world', 'See the good', 'Sweeter than honey', 'All is well', 'El hubiera no existe']
+        const quotes = ['One can never have enough socks', 'I solemnly swear that I am up to no good', 'Happiness can be found even in the darkest of times', 'It does not do to dwell on dreams and forget to live', 'Not all those who wander are lost']
         const phrases = quotes.map(quote=> new Phrase(quote), []);
         return phrases;
     };
