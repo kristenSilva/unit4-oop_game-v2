@@ -122,5 +122,6 @@ class Game {
                 this.gameOver(win);
             }
         }
+        button.disabled = true;
     }
 }
