@@ -43,7 +43,7 @@ h2 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 button {
@@ -52,7 +52,7 @@ button {
   padding: .5rem 1rem;
   color: var(--color-keys);
   font-size: var(--font-size-medium);
-  background-color: var(--color-keys-light);
+  background-color: #FFFFFF;
   border-radius: 5px;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
@@ -72,6 +72,7 @@ button {
   height: 100%;
   max-height: 900px;
   text-align: center;
+  background-color: #D0E1F9;
 }
 
 .section {
@@ -86,8 +87,8 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
-  font-family: 'papyrus', 'copperplate', fantasy;
+  color: #1E1F26;
+  font-family: 'copperplate', fantasy;
 }
 
 
@@ -100,15 +101,14 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  background: var(--color-neutral-light);
+  background-color: #283655;
   border-radius: 5px;
+  animation-duration: 1s;
 }
 
 .space {
   width: 15px;
 }
-
-
 
 .show {
   color: #fff;
@@ -162,7 +162,7 @@ button {
 
 /*Animation for keyboard*/
 .key {
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 
 
@@ -183,7 +183,7 @@ button {
 
 .title {
   color: #FFF;
-  font-family: 'papyrus', 'copperplate', fantasy;
+  font-family: 'copperplate', fantasy;
 }
 
 .start {
@@ -196,6 +196,7 @@ button {
 
 .win {
   background-color: var(--color-win);
+  animation-duration: 1s;
 }
 
 .win a {
@@ -208,4 +209,10 @@ button {
 
 .lose a {
   color: var(--color-lose);
+}
+
+/*Heart Images*/
+
+img {
+  animation-duration: 1s;
 }

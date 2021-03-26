@@ -3,7 +3,10 @@
  * app.js */
 const startButton = document.getElementById('btn__reset');
 const keyboardDiv = document.getElementById('qwerty');
+const title = document.getElementsByClassName('title')[0];
 var game;
+
+//title.classList.add('animated','zoomIn');
 
 /**
  * `Start Game` button initializes new Game object.

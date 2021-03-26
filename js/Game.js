@@ -60,6 +60,9 @@ class Game {
         lastImg.parentElement.classList.remove('tries');
 
         this.missed += 1;
+        if(this.missed === 4){
+            liveHearts[0].getElementsByTagName('img')[0].classList.add('headShake');
+        }
         if(this.missed === 5){
             this.gameOver();
         }
@@ -73,10 +76,12 @@ class Game {
         overlayDiv.style.display = 'inherit';
         const gameOverMessage = document.getElementById('game-over-message');
         if(gameWon){
-            gameOverMessage.innerHTML = 'You Won!';
+            gameOverMessage.innerHTML = '🎉 You Won! 🎉';
+            gameOverMessage.classList.add('animated','tada');
             overlayDiv.className = 'win';
         }else{
             gameOverMessage.innerHTML = 'Sorry, better luck next time!';
+            gameOverMessage.classList.add('animated', 'fadeInLeft');
             overlayDiv.className = 'lose';
         }
         this.resetGame();
@@ -106,11 +111,11 @@ class Game {
         const match = this.activePhrase.checkLetter(clickedLetter);
         //check captured letter against active phrase for matches
         if(!match){
-            button.classList.add('wrong');
+            button.classList.add('wrong', 'hinge');
             this.removeLife();
         } 
         if(match) {
-            button.classList.add('chosen');
+            button.classList.add('chosen', 'bounce');
             this.activePhrase.showMatchedLetter(clickedLetter);
             const win = this.checkForWin();
             if(win){

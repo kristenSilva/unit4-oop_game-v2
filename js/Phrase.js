@@ -16,7 +16,7 @@ class Phrase{
             let li = document.createElement('li');
             const letterRegEx = /[a-z]/.test(this.phrase[i]);
             if(letterRegEx){
-                li.classList.add('hide', 'letter', `${this.phrase[i]}`);
+                li.classList.add('hide', 'letter', 'jackInTheBox',`${this.phrase[i]}`);
                 li.textContent = `${this.phrase[i]}`;
             }else{
                 li.classList.add('space');
