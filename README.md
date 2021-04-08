@@ -11,3 +11,5 @@ Formatting changes
 6. `.letter` background color was updated to `#4c5c7e` and animation duration was updated in `styles.css`. `jackInTheBox` animation called in `Game.js`.
 7. When one live heart is left on screen animation `headShake` is called in `Game.js`.
 8. Changed text color of 'Phrase Hunter' in `overlay` (`#FFFFF`) and in `.header` (`#1E1F26`) in `styles.css`.
+
+Live site: https://kristensilva.github.io/unit4-project-techdegree/
