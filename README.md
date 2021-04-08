@@ -14,4 +14,4 @@ Formatting changes
 7. When one live heart is left on screen animation `headShake` is called in `Game.js`.
 8. Changed text color of 'Phrase Hunter' in `overlay` (`#FFFFF`) and in `.header` (`#1E1F26`) in `styles.css`.
 
-Live link: https://kristensilva.github.io/unit4-project-techdegree/
+Live link: https://kristensilva.github.io/unit4-oop_game-v2/
