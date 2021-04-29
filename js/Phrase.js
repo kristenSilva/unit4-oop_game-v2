@@ -12,6 +12,10 @@ class Phrase{
      */
     addPhraseToDisplay(){
         const ul = document.getElementById('phrase').getElementsByTagName('ul')[0];
+
+        //Marina: refactor - const ul = document.getElementById('phrase').firstElementChild
+
+        //Nicolette: refactor - document.querySelector(‘#phrase ul’)
         for(let i = 0; i < this.phrase.length; i++){
             let li = document.createElement('li');
             const letterRegEx = /[a-z]/.test(this.phrase[i]);
